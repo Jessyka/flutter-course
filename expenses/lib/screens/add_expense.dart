@@ -19,9 +19,9 @@ class AddExpense extends StatelessWidget{
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ExpenseTextField(_descriptionController, "Despesa", "despesa", keyboardType: TextInputType.text),
+          ExpenseTextField(_descriptionController, "Despesa", "Despesa", keyboardType: TextInputType.text),
           ExpenseTextField(_amountController, "Valor", "0.00", keyboardType: TextInputType.number),
-          DatePickerField(_dateController, keyboardType: TextInputType.datetime),
+          DatePickerField(_dateController),
           TextButton(
             child: Text('Nova Transação'),
             onPressed: () => _returnToHomeScreen(context),)
@@ -34,7 +34,7 @@ class AddExpense extends StatelessWidget{
     final description = _descriptionController.text;
     final amount = double.tryParse(_amountController.text);
     final date = DateTime.parse(_dateController.text);
-    
+
     if (description == null || amount == null || date == null) {
       return;
     }

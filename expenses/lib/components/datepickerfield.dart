@@ -4,10 +4,9 @@ import 'package:intl/intl.dart';
 
 class DatePickerField extends StatefulWidget{
   final TextEditingController _componentController;
-  final TextInputType keyboardType;
-  DateTime dateTimeValue = DateTime.now();
+  final TextInputType keyboardType = TextInputType.datetime;
 
-  DatePickerField(this._componentController, { this.keyboardType = TextInputType.text });
+  DatePickerField(this._componentController);
 
   @override
   State<StatefulWidget> createState() {
@@ -40,10 +39,10 @@ class _DatePickerFieldState extends State<DatePickerField> {
       child: TextField(
         controller: widget._componentController,
         decoration: const InputDecoration( 
-            icon: Icon(Icons.calendar_today), //icon of text field
-            labelText: "Enter Date" //label text of field
+            icon: Icon(Icons.calendar_today), 
+            labelText: "Selecione a data" 
         ),
-        readOnly: true,  // when true user cannot edit text 
+        readOnly: true, 
         onTap: () => _onTapDatePicker(context)
       ),
     );
