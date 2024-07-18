@@ -1,4 +1,5 @@
 import 'package:expenses/components/itemList.dart';
+import 'package:expenses/components/weekcost.dart';
 import 'package:expenses/models/expense.dart';
 import 'package:expenses/screens/add_expense.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   
-  List<Expense> _expenses = [];
+  List<Expense> _expenses = [ new Expense('Luz', 52.2, DateTime.now())];
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,9 @@ class _HomePageState extends State<HomePage> {
         _expenses.length > 0 ? 
         Column(
           children: [
+            SizedBox(height: 20),
+            WeekCostComponent(_expenses),
+            SizedBox(height: 20),
             for(var item in _expenses ) 
               ItemList(item, _removeExpense)])
         : Column(
@@ -37,6 +41,10 @@ class _HomePageState extends State<HomePage> {
             Text(
               'Nenhuma transação cadastrada.',
             ),
+            SizedBox(height: 20),
+            Container(
+              child: Image.asset('assets/images/waiting.png',
+              height: 200))
           ],
         ),
       ),

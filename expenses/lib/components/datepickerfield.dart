@@ -26,6 +26,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
     );
     if(pickedDate != null ){
       String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+      print(pickedDate.weekday);
       setState(() {
           widget._componentController.text = formattedDate; //set foratted date to TextField value. 
       });

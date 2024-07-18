@@ -30,6 +30,7 @@ class ItemList extends StatelessWidget{
         ),
         Expanded(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(expense.description, style: TextStyle(fontWeight: FontWeight.bold), textAlign: TextAlign.left,),
               Text(formatDate(expense.transactionDate, [dd, '/', mm, '/', yyyy]), textAlign: TextAlign.left)
